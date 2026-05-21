@@ -1,0 +1,7 @@
+*.iso
+*.img
+*.qcow2
+*.raw
+.DS_Store
+tmp/
+build/
