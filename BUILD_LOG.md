@@ -34,5 +34,41 @@
 
 ---
 
+## Session 2 — 2026-05-22
+### Phase 3: Desktop Shell (Wayland)
+- Installed Wayland display stack: sway, waybar, wofi, swaybg, foot, xorg-xwayland (~166 packages)
+- Enabled seatd (seat management for Wayland)
+- Changed UTM display from virtio-ramfb → virtio-gpu-pci (required for DRM/GPU device)
+- Loaded virtio_gpu kernel module
+- Set up auto-login on tty1 (systemd getty override)
+- Set up auto-launch sway from .bash_profile on tty1
+- Created sway config with hybrid window management:
+  - All windows float by default (Windows-style UX)
+  - Super+Space toggles floating/tiling
+  - Super+T cycles tiling layouts
+  - Super+Return opens foot terminal
+  - Super+D opens wofi app launcher
+  - Super+Q closes window
+  - Alt+Tab switches focus
+  - Super+Up fullscreen toggle
+- Configured waybar taskbar (CPU, RAM, IP, keyboard, clock)
+- Set dark blue background (#1a1a2e) via swaybg
+- Fixed locale (LANG=C.UTF-8)
+
+### Phase 3 Results
+- RAM idle: 276MB (full graphical desktop with compositor + taskbar)
+- Desktop: sway (Wayland compositor) + waybar + foot + wofi
+- Auto-boot to desktop: yes (no manual login required)
+- Window management: hybrid floating/tiling
+
+### Benchmarks Comparison
+| Metric | Stock Arch | Phase 1 (Terminal) | Phase 3 (Desktop) |
+|--------|-----------|-------------------|-------------------|
+| RAM idle | 63MB | 161MB | 276MB |
+| Packages | 135 | 165 | ~330 |
+| Services | 11 | 9 | 10 (seatd added) |
+
+---
+
 ## Next: Phase 2 — NVIDIA Auto-Config Scripts
-## Then: Phase 3 — Desktop Shell (Rust + Wayland)
+## Then: Theming — Modern desktop appearance

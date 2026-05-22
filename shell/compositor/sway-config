@@ -1,0 +1,16 @@
+default_floating_border normal 2
+default_border normal 2
+floating_modifier Mod4
+set $mod Mod4
+for_window [app_id=".*"] floating enable
+for_window [class=".*"] floating enable
+bindsym $mod+space floating toggle
+bindsym $mod+t layout toggle splith splitv tabbed
+bindsym $mod+Return exec foot
+bindsym $mod+d exec wofi --show drun
+bindsym $mod+q kill
+bindsym Mod1+Tab focus next
+bindsym $mod+Up fullscreen toggle
+bindsym $mod+Shift+e exec swaynag -t warning -m "Logout?" -B "Yes" "swaymsg exit"
+exec swaybg -c "#1a1a2e"
+exec waybar
