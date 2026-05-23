@@ -70,5 +70,38 @@
 
 ---
 
-## Next: Phase 2 — NVIDIA Auto-Config Scripts
-## Then: Theming — Modern desktop appearance
+## Session 2 (cont.) — 2026-05-22
+### Compositor Upgrade: sway → Hyprland
+- Replaced sway with Hyprland for animations, blur, and rounded corners
+- Installed hyprland package
+- Created hyprland.conf with:
+  - Smooth window/workspace animations (custom bezier curves)
+  - Blur effect (size 6, 3 passes)
+  - Drop shadows
+  - 10px rounded corners
+  - Gradient active borders (blue → purple, 45deg)
+  - Dwindle tiling layout with preserve_split
+  - Keybindings: Super+Return (terminal), Super+D (launcher), Super+W (close),
+    Super+Space (float toggle), Super+Up (fullscreen), Alt+Tab (cycle)
+  - Mouse bindings: Super+drag to move/resize windows
+- Updated .bash_profile to launch Hyprland instead of sway
+- RAM idle: ~350MB with Hyprland (vs 276MB with sway)
+
+### Theming: Catppuccin Mocha
+- Applied Catppuccin Mocha color scheme across all components
+- Foot terminal: JetBrains Mono Nerd Font, 16-color Catppuccin palette
+- Waybar: translucent background (85% opacity), rounded corners, colored module text
+  - Workspaces: blue highlight on active
+  - CPU: green, RAM: purple, Network: blue
+- Background: solid dark blue (#1a1a2e) via swaybg
+
+### Benchmarks Comparison
+| Metric | Stock Arch | Phase 1 (Terminal) | sway Desktop | Hyprland Desktop |
+|--------|-----------|-------------------|--------------|-----------------|
+| RAM idle | 63MB | 161MB | 276MB | ~350MB |
+| Packages | 135 | 165 | ~330 | ~335 |
+| Services | 11 | 9 | 10 | 10 |
+
+---
+
+## Next: Theming (wofi, GTK, cursor) → Custom Tools (Universal Search Bar, Snap Layouts, etc.)
