@@ -1,1 +1,1 @@
-[ "$(tty)" = "/dev/tty1" ] && exec sway --unsupported-gpu
+[ "$(tty)" = "/dev/tty1" ] && exec Hyprland --i-am-really-stupid
