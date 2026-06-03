@@ -104,4 +104,20 @@
 
 ---
 
-## Next: Theming (wofi, GTK, cursor) → Custom Tools (Universal Search Bar, Snap Layouts, etc.)
+## Session 3 — 2026-06-03
+### Custom Tools: Universal Search
+- Implemented `universal-search` in Rust as a high-performance app launcher backend.
+- Features:
+  - Recursive discovery of `.desktop` files in standard Linux paths.
+  - Custom parser for `.desktop` files (Name, Exec, Icon, NoDisplay, Type).
+  - Cleaning of `Exec` field (removes field codes like %u, %f).
+  - Fuzzy matching using `skim` algorithm (searches both Name and Exec).
+  - JSON output for easy integration with GUI or Waybar.
+  - Score-based ranking and result limiting (top 10).
+- Dependencies: `walkdir`, `fuzzy-matcher`, `serde`, `serde_json`.
+- Verification:
+  - Added unit tests for `.desktop` parser in `desktop_entry.rs`.
+  - Verified JSON output and fuzzy search ranking.
+- Packages added (dev): `tempfile`.
+
+### Next: Custom Tools (Snap Layouts, etc.) → GUI for Universal Search
